@@ -1,5 +1,6 @@
 import java.util.HashMap;
 
+// LeetCode challenge URL: https://leetcode.com/problems/roman-to-integer/
 class RomanToInteger {
     HashMap<Character, Integer> numbers = new HashMap<>(){{
         put('I', 1);
