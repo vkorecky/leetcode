@@ -1,15 +1,17 @@
+import java.util.HashMap;
+import java.util.Map;
 
 // LeetCode challenge URL: https://leetcode.com/problems/two-sum/
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
-        for (int i=0; i<nums.length -1; i++) {
-            int firstNum = nums[i];
-            for (int j=i+1; j<nums.length; j++) {
-                int secondNum = nums[j];
-                if ((firstNum+secondNum) == target){
-                    return new int[]{i, j};
-                }
+        Map<Integer, Integer> complements = new HashMap<>();
+
+        for (int i=0; i<nums.length; i++) {
+            Integer complement = target - nums[i];
+            if (complements.containsKey(nums[i])) {
+                return new int[]{complements.get(nums[i]), i};
             }
+            complements.put(complement, i);
         }
         return new int[2];
     }
